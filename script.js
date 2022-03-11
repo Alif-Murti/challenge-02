@@ -1,33 +1,34 @@
 // Nomer 1
-// function changeWord (selectedText, changedText, text){
-//     return text.replace(selectedText, changedText);
+// function changeWord(selectedText, changedText, text) {
+//   return text.replace(selectedText, changedText);
 // }
 
-// const kalimat1 = 'Andini sangat mencintai kamu selamanya';
-// const kalimat2 = 'Gunung bromo tak akan mampu menggambarkan besarnya cintaku padamu';
+// const kalimat1 = "Andini sangat mencintai kamu selamanya";
+// const kalimat2 =
+//   "Gunung bromo tak akan mampu menggambarkan besarnya cintaku padamu";
 
-// console.log(changeWord('mencintai','membenci',kalimat1));
-// console.log(changeWord('bromo','semeru',kalimat2));
+// console.log(changeWord("mencintai", "membenci", kalimat1));
+// console.log(changeWord("bromo", "semeru", kalimat2));
 
 // Nomer 2
 // checkTypeNumber = (givenNumber) => {
-//     if (givenNumber == null){
-//         return "Error: Bro where is the parameter?"
-//     } else if (typeof givenNumber !== 'number'){
-//         return "Error: Invalid data type"
-//     } else if (givenNumber % 2 == 0){
-//         return "GENAP"
-//     } else {
-//         return "GANJIL"
-//     }
-// }
+//   if (givenNumber == null) {
+//     return "Error: Bro where is the parameter?";
+//   } else if (typeof givenNumber !== "number") {
+//     return "Error: Invalid data type";
+//   } else if (givenNumber % 2 == 0) {
+//     return "GENAP";
+//   } else {
+//     return "GANJIL";
+//   }
+// };
 
 // console.log(checkTypeNumber(10));
 // console.log(checkTypeNumber(3));
-// console.log(checkTypeNumber("3"));
-// console.log(checkTypeNumber({}));
-// console.log(checkTypeNumber([]));
-// console.log(checkTypeNumber());
+// console.log(checkTypeNumber("3")); //ini 3 nya kebaca string
+// console.log(checkTypeNumber({})); // kurung kriting bukan angka
+// console.log(checkTypeNumber([])); //apalagi kurung siku
+// console.log(checkTypeNumber()); // ini malah kosong gaada parameternya
 
 // Nomer Tiga
 // function checkEmail(email) {
@@ -45,11 +46,11 @@
 
 // console.log(checkEmail("apranata@binar.co.id"));
 // console.log(checkEmail("apranata@binar.com"));
-// console.log(checkEmail("apranata@binar"));
-// console.log(checkEmail("apranata"));
-// // console.log(checkTypeNumber(checkEmail(3322)));
-// console.log(checkEmail(3322));
-// console.log(checkEmail());
+// console.log(checkEmail("apranata@binar")); // saya regular expressionnya minta temen kak, soalnya belom belajar lagi ehe
+// console.log(checkEmail("apranata")); // kurang tau juga hehe
+// // console.log(checkTypeNumber(checkEmail(3322)));  // ini error karena checkTypeNumber itu gaada di fungsinya
+// console.log(checkEmail(3322)); // ini error karena emang udah ga sesuai sama format validasinya
+// console.log(checkEmail()); // error karena kosong
 
 // Nomer Empat
 // function isValidPassword(givenPassword) {
@@ -83,84 +84,94 @@
 // }
 
 // console.log(isValidPassword("Meong2021"));
-// console.log(isValidPassword("meong2021"));
-// console.log(isValidPassword("@eong"));
-// console.log(isValidPassword("Meong2"));
-// console.log(isValidPassword(0));
-// console.log(isValidPassword());
+// console.log(isValidPassword("meong2021")); //gaada kapitalnya sesuai kondisi else if pertama
+// console.log(isValidPassword("@eong")); // kurang dari 8 huruf dan gaada angkanya (else if ketiga)
+// console.log(isValidPassword("Meong2")); //kurang dari 8 huruf (else if kedua)
+// console.log(isValidPassword(0)); // input tidak sesuai karena semua kondisi tidak terpenuhi
+// console.log(isValidPassword()); //  kosonggg
 
 // Nomer Lima
-// function getSplitName(personName){
-//     if (typeof personName == 'string'){
-//         var names = personName.split(' ');
-//         if (names.length == 3){
-//             return `{firstName: ${names[0]}, middleName: ${names[1]}, lastName: ${names[2]}}`
-//         } else if (names.length == 2){
-//             return `{firstName: ${names[0]}, middleName: null, lastName: ${names[names.length-1]}}`;
-//         } else if (names.length == 1){
-//             return `{firstName: ${names[0]}, middleName: null, lastName: null}`;
-//         } else{
-//             return "Error: This function is only for 3 characters name"
-//         }
-//     } else{
-//         return "Error: Invalid data type"
+// function getSplitName(personName) {
+//   if (typeof personName == "string") {
+//     var names = personName.split(" ");
+//     if (names.length == 3) {
+//       return `{firstName: ${names[0]}, middleName: ${names[1]}, lastName: ${names[2]}}`;
+//     } else if (names.length == 2) {
+//       return `{firstName: ${names[0]}, middleName: null, lastName: ${
+//         names[names.length - 1]
+//       }}`;
+//     } else if (names.length == 1) {
+//       return `{firstName: ${names[0]}, middleName: null, lastName: null}`;
+//     } else {
+//       return "Error: This function is only for 3 characters name";
 //     }
+//   } else {
+//     return "Error: Invalid data type";
+//   }
 // }
 
 // console.log(getSplitName("Aldi Daneila Pranata"));
 // console.log(getSplitName("Dwi Kuncoro"));
 // console.log(getSplitName("Aurora"));
-// console.log(getSplitName("Aurora Aureliya Sukma Darma"));
-// console.log(getSplitName(0));
+// console.log(getSplitName("Aurora Aureliya Sukma Darma")); // suku katanya kebanyakan, maks 3
+// console.log(getSplitName(0)); // 0 error karena bukan string, kecuali 0 nya dikasih kutip
 
 // Nomer Enam
-// function getAngkaTerbesarKedua (dataNumbers){
-//     if (dataNumbers == null){
-//         return "Error: Bro where is the parameter?"
-//     } else if (dataNumbers instanceof Array){
-//         let max = Math.max.apply(null, dataNumbers); //Get Angka Terbesar
-//         dataNumbers.splice(dataNumbers.indexOf(max), 1); //Remove Angka Terbesar
-//         return Math.max.apply(null, dataNumbers) //Angka Terbesar Kedua
-//     } else{
-//         return "Error: Not an array"
-//     }
+// function getAngkaTerbesarKedua(dataNumbers) {
+//   if (dataNumbers == null) {
+//     return "Error: Parameternya dimana?";
+//   } else if (dataNumbers instanceof Array) {
+//     let max = Math.max.apply(null, dataNumbers); //Get Angka Terbesar
+//     dataNumbers.splice(dataNumbers.indexOf(max), 1); //Remove Angka Terbesar
+//     return Math.max.apply(null, dataNumbers); //Angka Terbesar Kedua
+//   } else {
+//     return "Error: Not an array";
+//   }
 // }
 
 // const dataAngka = [9, 4, 7, 7, 4, 3, 2, 2, 8];
 
 // console.log(getAngkaTerbesarKedua(dataAngka));
-// console.log(getAngkaTerbesarKedua(0));
-// console.log(getAngkaTerbesarKedua());
+// console.log(getAngkaTerbesarKedua(0)); //ini paramnya angka, bukan variabel yang isinya array
+// console.log(getAngkaTerbesarKedua()); //kosong bang
 
-// Nomer Tujuh
-// const dataPenjualanPakAldi = [
-//     {
-//         namaProduct: 'Sepatu Futsal Nike Vapor Academy 8',
-//         hargaSatuan: 760000,
-//         kategori: "Sepatu Sport",
-//         totalTerjual: 90
-//     },
-//     {
-//         namaProduct: 'Sepatu Warrior Tristan Black Brown High',
-//         hargaSatuan: 960000,
-//         kategori: "Sepatu Sneaker",
-//         totalTerjual: 37
-//     },
-//     {
-//         namaProduct: 'Sepatu Warrior Tristan Maroon High',
-//         hargaSatuan: 360000,
-//         kategori: "Sepatu Sport",
-//         totalTerjual: 90
-//     },
-//     {
-//         namaProduct: 'Sepatu Warrior Rainbow Tosca Corduroy',
-//         hargaSatuan: 120000,
-//         kategori: "Sepatu Sport",
-//         totalTerjual: 90
-//     }
-// ]
+// Nomer Tujuh (Beloman)
+const dataPenjualanPakAldi = [
+  {
+    namaProduct: "Sepatu Futsal Nike Vapor Academy 8",
+    hargaSatuan: 760000,
+    kategori: "Sepatu Sport",
+    totalTerjual: 90,
+  },
+  {
+    namaProduct: "Sepatu Warrior Tristan Black Brown High",
+    hargaSatuan: 960000,
+    kategori: "Sepatu Sneaker",
+    totalTerjual: 37,
+  },
+  {
+    namaProduct: "Sepatu Warrior Tristan Maroon High",
+    hargaSatuan: 360000,
+    kategori: "Sepatu Sport",
+    totalTerjual: 90,
+  },
+  {
+    namaProduct: "Sepatu Warrior Rainbow Tosca Corduroy",
+    hargaSatuan: 120000,
+    kategori: "Sepatu Sport",
+    totalTerjual: 90,
+  },
+];
+function hitungTotalPenjualan(dataPenjualan) {
+  const totalPenjualan = dataPenjualan
+    .map((jumlah) => jumlah.totalTerjual)
+    .reduce((prevValue, currValue) => prevValue + currValue, 0);
+  return totalPenjualan;
+}
 
-//Nomor Delapan
+console.log(hitungTotalPenjualan(dataPenjualanPakAldi));
+
+//Nomor Delapan (Beloman)
 // function hitungTotalPenjualan(dataPenjualan){
 //     const totalPenjualan = dataPenjualan.map(jumlah => jumlah.totalTerjual).reduce((prevValue, currValue) => prevValue + currValue, 0);
 //     return totalPenjualan;
@@ -168,7 +179,6 @@
 
 // console.log(hitungTotalPenjualan(dataPenjualanPakAldi));
 
-// Nomer Delapan (Beloman)
 // const dataPenjualanNovel = [
 //     {
 //       idProduct: 'BOOK002421',
